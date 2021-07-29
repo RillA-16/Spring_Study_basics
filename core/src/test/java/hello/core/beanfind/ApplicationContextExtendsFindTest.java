@@ -43,6 +43,7 @@ public class ApplicationContextExtendsFindTest {
     void findAllBeanByParentType() {
         Map<String, DiscountPolicy> beansOfType = ac.getBeansOfType(DiscountPolicy.class);
         org.assertj.core.api.Assertions.assertThat(beansOfType.size()).isEqualTo(2);
+
         for (String key : beansOfType.keySet()) {
             System.out.println("key = " + key + " value = " + beansOfType.get(key));
         }

@@ -5,10 +5,14 @@ import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+
+// final이 붙은 생성자를 생성해준다.
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     // final을 쓰면 생성자에서만 수정이 가능하고 나머지에서는 수정이 불가능하다
@@ -16,6 +20,7 @@ public class OrderServiceImpl implements OrderService {
     //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     private final DiscountPolicy discountPolicy;
 
+    // get, set 의존 주입
 //    @Autowired
 //    public void setMemberRepository(MemberRepository memberRepository) {
 //        this.memberRepository = memberRepository;
@@ -26,11 +31,15 @@ public class OrderServiceImpl implements OrderService {
 //        this.discountPolicy = discountPolicy;
 //    }
 
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+    // 생성자
+    // 생성자가 하나만 있으면 생략 가능
+//    @Autowired
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
+    // 메서드 의존 주입
 //    @Autowired
 //    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 //        this.memberRepository = memberRepository;

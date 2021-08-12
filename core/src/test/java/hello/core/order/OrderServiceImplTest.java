@@ -17,8 +17,8 @@ class OrderServiceImplTest {
         memberRepository.save(new Member(1L, "name", Grade.VIP));
 
         OrderServiceImpl orderService = new OrderServiceImpl(new MemoryMemberRepository(), new RateDiscountPolicy());
-        Order order = orderService.createOrder(1L, "itemA", 10000);
+        Order order = orderService.createOrder(1L, "itemA", 100000);
 
-        org.assertj.core.api.Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
+        org.assertj.core.api.Assertions.assertThat()
     }
 }

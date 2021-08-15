@@ -7,18 +7,18 @@ import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-
 // final이 붙은 생성자를 생성해준다.
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     // final을 쓰면 생성자에서만 수정이 가능하고 나머지에서는 수정이 불가능하다
     private final MemberRepository memberRepository;
-    //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     private final DiscountPolicy discountPolicy;
+
 
     // get, set 의존 주입
 //    @Autowired
@@ -33,11 +33,11 @@ public class OrderServiceImpl implements OrderService {
 
     // 생성자
     // 생성자가 하나만 있으면 생략 가능
-//    @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     // 메서드 의존 주입
 //    @Autowired

@@ -1,6 +1,7 @@
 package hello.core.order;
 
 import com.sun.source.tree.UsesTree;
+import hello.core.annotaion.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
@@ -34,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
     // 생성자
     // 생성자가 하나만 있으면 생략 가능
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }

@@ -20,7 +20,20 @@
 ```  java
  // HashMap 생성
  HashMap<Integer,String> map = new HashMap<>(); // new에서 타입 파라미터 생략가능
- map.put(1,"딸기"); // 값 추가 
+
+ // 값 추가 
+ map.put(1,"딸기"); 
  map.put(2,"복숭아");
  map.put(3,"포도");
+ 
+ // 값 제거
+ map.reomve(1); // key == 1 제거
+ map.clear(); // map 모두 제거
+ 
+ // 값 출력
+ System.out.println(map.get(1));
+ 
+ // 값 수정
+ map.replace(1, "수박");
+ 
 ``` 

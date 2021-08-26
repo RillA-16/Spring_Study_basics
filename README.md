@@ -17,10 +17,10 @@
 - Map 인터페이스를 구현하므로, 중복된 키로는 값 저장 NO
 
 ### HashMap method
-''' java
+```  java
  // HashMap 생성
  HashMap<Integer,String> map = new HashMap<>(); // new에서 타입 파라미터 생략가능
  map.put(1,"딸기"); // 값 추가 
  map.put(2,"복숭아");
  map.put(3,"포도");
-'''
+``` 
